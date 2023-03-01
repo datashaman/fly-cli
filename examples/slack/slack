@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+import os
+
+from dotenv import load_dotenv
+from fly_cli import FlyCLI
+from slack import Slack
+
+
+load_dotenv()
+
+fly = FlyCLI()
+fly(Slack(token=os.environ.get('SLACK_BOT_TOKEN')))
